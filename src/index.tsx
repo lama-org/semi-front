@@ -1,7 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+
+declare module 'react' {
+  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+    // extends React's HTMLAttributes
+    selected?: boolean;
+  }
+}
 
 ReactDOM.render(
   <React.StrictMode>
