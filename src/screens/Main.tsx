@@ -27,7 +27,7 @@ const Main = (): JSX.Element => {
           'http://img.lifestyler.co.kr/uploads/program/seditor/2021/07/f637632472041903770.jpeg',
         ].map((i) => {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={`poster_${i}`}>
               <Poster src={i} alt="" />
             </SwiperSlide>
           );

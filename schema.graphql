@@ -1,0 +1,215 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+  query: Query
+}
+
+type Company {
+  id: Int
+  logo_path: String
+  name: String
+  origin_country: String
+}
+
+type Country {
+  iso_3166_1: String
+  name: String
+}
+
+type CreatedBy {
+  credit_id: String
+  gender: Int
+  id: Int
+  name: String
+  profile_path: String
+}
+
+type Crew {
+  credit_id: Int
+  department: String
+  id: Int
+  job: String
+  name: String
+  profile_path: String
+}
+
+type Episode {
+  air_date: String
+  crew: [Crew]
+  episode_number: Int
+  guest_stars: [GuestStars]
+  id: Int
+  name: String
+  overview: String
+  production_code: String
+  season_number: Int
+  still_path: String
+  vote_average: Float
+  vote_count: Float
+}
+
+type Genres {
+  id: Int
+  name: String
+}
+
+type GuestStars {
+  character: String
+  credit_id: Int
+  id: ID
+  name: String
+  order: Int
+  profile_path: String
+}
+
+type Language {
+  english_name: String
+  iso_639_1: String
+  name: String
+}
+
+type Movie {
+  adult: Boolean
+  backdrop_path: String
+  genre_ids: [Int]
+  id: Int
+  original_language: String
+  original_title: String
+  overview: String
+  popularity: Float
+  poster_path: String
+  release_date: String
+  title: String
+  video: Boolean
+  vote_average: Float
+  vote_count: Int
+}
+
+type MovieDetail {
+  adult: Boolean
+  backdrop_path: String
+  budget: Int
+  genres: [Genres]
+  homepage: String
+  id: Int
+  imdb_id: String
+  original_language: String
+  original_title: String
+  overview: String
+  popularity: Float
+  poster_path: String
+  production_companies: [Company]
+  production_countries: [Country]
+  release_date: String
+  revenue: Int
+  runtime: Int
+  spoken_languages: [Language]
+  status: String
+  tagline: String
+  title: String
+  video: Boolean
+  vote_average: Float
+  vote_count: Int
+}
+
+type MovieResult {
+  page: Int!
+  results: [Movie]
+  total_pages: Int!
+  total_results: Int!
+}
+
+type Network {
+  id: Int
+  logo_path: String
+  name: String
+  origin_country: String
+}
+
+type Query {
+  airing_today(page: Int): TVResult
+  moviePopular(page: Int, region: String): MovieResult
+  movie_detail(id: Int!): MovieDetail
+  now_playing(page: Int, region: String): MovieResult
+  popular(page: Int): TVResult
+  top_rate(page: Int): TVResult
+  top_rated(page: Int, region: String): MovieResult
+  tv_detail(id: Int!): TvDetail
+  tv_episode_detail(episode: Int!, id: Int!, season: Int!): Episode
+  tv_season_detail(id: Int!, season: Int!): SeasonDetail
+  upcoming(page: Int, region: String): MovieResult
+}
+
+type Season {
+  air_date: String
+  episode_count: Int
+  id: Int
+  name: String
+  overview: String
+  poster_path: String
+  season_number: Int
+}
+
+type SeasonDetail {
+  _id: String
+  air_date: String
+  episodes: [Episode]
+  id: Int
+  name: String
+  overview: String
+  poster_path: String
+  season_number: Int
+}
+
+type TV {
+  backdrop_path: String
+  first_air_date: String
+  id: ID
+  name: String
+  original_language: String
+  original_name: String
+  overview: String
+  popularity: Float
+  vote_average: Float
+}
+
+type TVResult {
+  page: Int!
+  results: [TV]
+  total_pages: Int!
+  total_results: Int!
+}
+
+type TvDetail {
+  backdrop_path: String
+  created_by: [CreatedBy]
+  episode_run_time: [Int]
+  first_air_date: String
+  genres: [Genres]
+  homepage: String
+  id: Int
+  in_production: Boolean
+  languages: [String]
+  last_air_date: String
+  last_episode_to_air: Episode
+  name: String
+  networks: [Network]
+  next_episode_to_air: String
+  number_of_episodes: Int
+  number_of_seasons: Int
+  origin_country: [String]
+  original_language: String
+  original_name: String
+  overview: String
+  popularity: Int
+  poster_path: String
+  production_companies: [Company]
+  production_countries: [Country]
+  seasons: [Season]
+  spoken_languages: [Language]
+  status: String
+  tagline: String
+  type: String
+  vote_average: Float
+  vote_count: Int
+}

@@ -1,13 +1,20 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Header from './Header';
-import Main from '../screens/Main';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import NotFound from '../screens/NotFound';
+import Layout from './Layout';
+import routes from '../routes';
 
 const AppRouter = (): JSX.Element => {
   return (
     <Router>
-      <Header />
-      <Route path="/" exact component={Main} />
+      <Layout>
+        <Switch>
+          {Object.keys(routes).map((route) => (
+            <Route key={`route_${route}`} {...routes[route]} />
+          ))}
+          <Route component={NotFound} />
+        </Switch>
+      </Layout>
     </Router>
   );
 };
