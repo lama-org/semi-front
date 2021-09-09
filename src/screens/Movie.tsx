@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import styled from 'styled-components';
-import { MovieQuery } from '../@types/__generated__/MovieQuery';
+import { MovieListQuery } from '../@types/__generated__/MovieListQuery';
 import starImg from '../img/star_rate.png';
 import FavouriteComponent from '../components/AddFavourite';
 
@@ -14,15 +14,6 @@ const Title = styled.h2`
   font-size: 25px;
   font-weight: 600;
   margin-bottom: 20px;
-`;
-
-const Content = styled.div`
-  margin-bottom: 10px;
-  padding-left: 20px;
-
-  &:last-child {
-    margin-bottom: 20px;
-  }
 `;
 
 const LeftPart = styled.div`
@@ -43,7 +34,7 @@ const MovieContainer = styled.div`
 `;
 
 const MovieBox = styled.div`
-  width: 22%;
+  width: 18%;
   text-align: center;
   padding: 1vh;
   position: relative;
@@ -63,11 +54,11 @@ const MoviePoster = styled.img`
 `;
 
 const MovieTitle = styled.p`
-  font-size: 2vh;
+  font-size: 1.7vh;
 `;
 
 const MovieVoteAverage = styled.p`
-  font-size: 2vh;
+  font-size: 1.7vh;
 `;
 
 const StarIcon = styled.i`
@@ -92,7 +83,7 @@ const FavUl = styled.ul`
 `;
 
 const FavLi = styled.li`
-  margin: 20px 0px;
+  margin: 20px 0;
 `;
 
 const FavImg = styled.img`
@@ -101,8 +92,8 @@ const FavImg = styled.img`
   object-fit: cover;
 `;
 
-const movieQuery = gql`
-  query MovieQuery {
+const movieListQuery = gql`
+  query MovieListQuery {
     popular: moviePopular {
       page
       results {
@@ -110,6 +101,7 @@ const movieQuery = gql`
         title
         vote_average
         poster_path
+        overview
       }
       total_pages
       total_results
@@ -121,6 +113,7 @@ const movieQuery = gql`
         title
         vote_average
         poster_path
+        overview
       }
       total_pages
       total_results
@@ -129,7 +122,7 @@ const movieQuery = gql`
 `;
 
 const Movie: FunctionComponent = () => {
-  const { loading, data } = useQuery<MovieQuery>(movieQuery);
+  const { loading, data } = useQuery<MovieListQuery>(movieListQuery);
 
   return (
     <Container>
