@@ -8,15 +8,14 @@
 // ====================================================
 
 export interface MovieQuery_popular_results {
-  __typename: 'Movie';
+  __typename: "Movie";
   id: number | null;
   title: string | null;
-  poster_path: string | null;
   vote_average: number | null;
 }
 
 export interface MovieQuery_popular {
-  __typename: 'MovieResult';
+  __typename: "MovieResult";
   page: number;
   results: (MovieQuery_popular_results | null)[] | null;
   total_pages: number;
@@ -24,15 +23,14 @@ export interface MovieQuery_popular {
 }
 
 export interface MovieQuery_upcoming_results {
-  __typename: 'Movie';
+  __typename: "Movie";
   id: number | null;
   title: string | null;
-  poster_path: string | null;
   vote_average: number | null;
 }
 
 export interface MovieQuery_upcoming {
-  __typename: 'MovieResult';
+  __typename: "MovieResult";
   page: number;
   results: (MovieQuery_upcoming_results | null)[] | null;
   total_pages: number;
