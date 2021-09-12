@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import styled from 'styled-components';
-import { MovieListQuery } from '../@types/__generated__/MovieListQuery';
+import { MovieQuery } from '../@types/__generated__/MovieQuery';
 import starImg from '../img/star_rate.png';
 import FavouriteComponent from '../components/AddFavourite';
 
@@ -122,7 +122,7 @@ const movieListQuery = gql`
 `;
 
 const Movie: FunctionComponent = () => {
-  const { loading, data } = useQuery<MovieListQuery>(movieListQuery);
+  const { loading, data } = useQuery<MovieQuery>(movieListQuery);
 
   return (
     <Container>

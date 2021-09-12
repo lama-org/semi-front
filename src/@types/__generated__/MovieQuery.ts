@@ -13,6 +13,7 @@ export interface MovieQuery_popular_results {
   title: string | null;
   poster_path: string | null;
   vote_average: number | null;
+  backdrop_path: string | null;
 }
 
 export interface MovieQuery_popular {
@@ -23,12 +24,14 @@ export interface MovieQuery_popular {
   total_results: number;
 }
 
+
 export interface MovieQuery_upcoming_results {
   __typename: 'Movie';
   id: number | null;
   title: string | null;
   poster_path: string | null;
   vote_average: number | null;
+  backdrop_path: string | null;
 }
 
 export interface MovieQuery_upcoming {
@@ -39,7 +42,43 @@ export interface MovieQuery_upcoming {
   total_results: number;
 }
 
+export interface MovieQuery_nowPlaying_results {
+  __typename: 'Movie';
+  id: number | null;
+  title: string | null;
+  poster_path: string | null;
+  vote_average: number | null;
+  backdrop_path: string | null;
+}
+
+export interface MovieQuery_nowPlaying {
+  __typename: 'MovieResult';
+  page: number;
+  results: (MovieQuery_nowPlaying_results | null)[] | null;
+  total_pages: number;
+  total_results: number;
+}
+
+export interface MovieQuery_topRated_results {
+  __typename: 'Movie';
+  id: number | null;
+  title: string | null;
+  poster_path: string | null;
+  vote_average: number | null;
+  backdrop_path: string | null;
+}
+
+export interface MovieQuery_topRated {
+  __typename: 'MovieResult';
+  page: number;
+  results: (MovieQuery_topRated_results | null)[] | null;
+  total_pages: number;
+  total_results: number;
+}
+
 export interface MovieQuery {
   popular: MovieQuery_popular | null;
   upcoming: MovieQuery_upcoming | null;
+  nowPlaying: MovieQuery_nowPlaying | null;
+  topRated: MovieQuery_nowPlaying | null;
 }
