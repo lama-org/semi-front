@@ -138,10 +138,10 @@ const Movie: FunctionComponent = () => {
                   'https://t1.daumcdn.net/cfile/tistory/231235395466C11011?original',
                   'http://img.lifestyler.co.kr/uploads/program/seditor/2021/08/f637656764822846028.jpeg',
                   'http://img.lifestyler.co.kr/uploads/program/seditor/2021/07/f637632472041903770.jpeg',
-                ].map((i) => {
+                ].map((i, idx) => {
                   return (
-                    <FavLi>
-                      <FavDiv key={`poster_${i}`}>
+                    <FavLi key={idx}>
+                      <FavDiv>
                         <FavImg src={i} alt="" />
                       </FavDiv>
                     </FavLi>
