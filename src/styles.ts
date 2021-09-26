@@ -33,4 +33,12 @@ export const GlobalStyles = createGlobalStyle`
     font-size:32px;
     margin-bottom:30px;
   }
+  .loading{
+    position: fixed;
+    width: 6rem;
+    height: 6rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;
