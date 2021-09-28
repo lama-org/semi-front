@@ -1,9 +1,9 @@
 import { FunctionComponent } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import styled from 'styled-components';
-import { MovieListQuery } from '../@types/__generated__/MovieListQuery';
 import starImg from '../img/star_rate.png';
 import FavouriteComponent from '../components/AddFavourite';
+import { MoviePageQuery } from '../@types/__generated__/MoviePageQuery';
 
 const Container = styled.div`
   padding: 50px 10px 0;
@@ -114,8 +114,8 @@ const FavImg = styled.img`
   object-fit: cover;
 `;
 
-const movieListQuery = gql`
-  query MovieListQuery {
+const movieQuery = gql`
+  query MoviePageQuery {
     popular: moviePopular {
       page
       results {
@@ -144,7 +144,7 @@ const movieListQuery = gql`
 `;
 
 const Movie: FunctionComponent = () => {
-  const { loading, data } = useQuery<MovieListQuery>(movieListQuery);
+  const { loading, data } = useQuery<MoviePageQuery>(movieQuery);
 
   return (
     <Container>
@@ -183,7 +183,7 @@ const Movie: FunctionComponent = () => {
                       <MovieTitle className="movieTitle">{upcoming?.title}</MovieTitle>
                       <MovieVoteAverage className="voteAverage">
                         <StarIcon>
-                          <StarIconImg src={starImg}></StarIconImg>
+                          <StarIconImg src={starImg} />
                         </StarIcon>
                         {upcoming?.vote_average}
                       </MovieVoteAverage>
