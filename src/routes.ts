@@ -2,6 +2,7 @@ import Main from './screens/Main';
 import { RouteProps } from 'react-router';
 import Example from './screens/Example';
 import Movie from './screens/Movie';
+import MovieDetail from './screens/MovieDetail';
 
 export default {
   home: {
@@ -17,6 +18,10 @@ export default {
     path: '/movie',
     component: Movie,
   },
+  movieDetail: {
+    path: '/movieDetail/:id',
+    component: MovieDetail,
+  },
 } as SemiRoute<RouteProps>;
 
 interface SemiRoute<RouteT> {
@@ -24,5 +29,6 @@ interface SemiRoute<RouteT> {
   home: RouteT;
   example: RouteT;
   movie: RouteT;
+  movieDetail: RouteT;
 }
 ``;
