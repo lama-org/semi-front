@@ -4,11 +4,11 @@ import styled from 'styled-components';
 const Container = styled.div`
   position: absolute;
   background: rgba(0, 0, 0, 0.8);
-  width: 95%;
+  width: 88%;
   transition: 0.5s ease;
   opacity: 0;
-  bottom: 0;
-  font-size: 15px;
+  bottom: 22px;
+  font-size: 20px;
   padding: 15px;
   text-align: center;
 `;
