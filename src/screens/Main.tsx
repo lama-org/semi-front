@@ -4,9 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
 import SwiperCore, { Navigation } from 'swiper';
-import { MovieQuery } from '../@types/__generated__/MovieQuery';
-import { TvQuery } from '../@types/__generated__/TvQuery';
 import { gql, useQuery } from '@apollo/client';
+import { TvListQuery } from '../@types/__generated__/TvListQuery';
+import { MovieListQuery } from '../@types/__generated__/MovieListQuery';
 
 const movieListQuery = gql`
   query MovieListQuery {
@@ -87,8 +87,8 @@ const SubTitle = styled.h2`
 `;
 
 const Main = (): JSX.Element => {
-  const movie = useQuery<MovieQuery>(movieListQuery);
-  const tv = useQuery<TvQuery>(tvListQuery);
+  const movie = useQuery<MovieListQuery>(movieListQuery);
+  const tv = useQuery<TvListQuery>(tvListQuery);
 
   return (
     <>
